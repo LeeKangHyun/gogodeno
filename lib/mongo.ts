@@ -3,7 +3,9 @@ import env from './env.ts';
 
 const client = new MongoClient();
 
+const { user, password, uri } = env;
+
 console.log(`Starting MongoDB :)`)
-client.connectWithUri(`mongodb+srv://${env['user']}:${env['password']}@${env['uri']}`);
+client.connectWithUri(`mongodb+srv://${user}:${password}@${uri}`);
 
 export default client;

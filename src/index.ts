@@ -1,15 +1,13 @@
-import { default as client } from '../lib/mongo.ts';
+import { serve } from 'https://deno.land/std/http/server.ts';
 
-interface DenoSchema {
-  _id: { $oid: string };
-  title: string;
-  content: string;
-}
+import { default as client } from '../lib/mongo.ts';
+import { DenoSchema } from '../types/schema.ts';
 
 const db = client.database('portfolio');
 const deno = db.collection<DenoSchema>('deno');
 
-deno.insertOne({
-  content: '',
-  title: ''
-});
+const PORT = 3000;
+
+const server = serve({ port: PORT });
+
+console.log(`Server Running on ${PORT}`);
