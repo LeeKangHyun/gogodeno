@@ -6,6 +6,12 @@ const client = new MongoClient();
 const { user, password, uri } = env;
 
 console.log(`Starting MongoDB :)`)
-client.connectWithUri(`mongodb+srv://${user}:${password}@${uri}`);
+
+try {
+  client.connectWithUri(`mongodb+srv://${user}:${password}@${uri}`);
+  
+} catch (err) {
+  console.error(err);
+}
 
 export default client;
