@@ -1,4 +1,4 @@
-# GoGo_Deno
+# GoGo_Deno Server
 
 ## Start
 

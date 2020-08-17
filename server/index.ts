@@ -21,14 +21,13 @@ app.use(async (ctx, next) => {
 app.use(REST.routes());
 app.use(REST.allowedMethods());
 
-const PORT = 3000;
+const PORT = 8000;
 
 app.addEventListener('listen', ({ hostname, port, secure }) => {
   console.log(
-    `Listening on: ${secure ? "https://" : "http://"}${
-      hostname ?? "localhost"
-    }:${port}`
+    `Listening on: ${secure ? "https://" : "http://"}${hostname ?? "localhost"}:${port}`
   )
 });
 
 await app.listen({ port: PORT });
+console.log('Terminated :(');
